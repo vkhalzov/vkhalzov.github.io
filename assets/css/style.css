@@ -17,9 +17,20 @@
   --muted:     #6a9abf;
   --border:    rgba(77,184,232,0.2);
   --sidebar-w: 48px;
+  /* Font size */
+  --text-xxs: .625rem; /* 0.75rem (10px) */
+  --text-xs: .75rem; /* 0.75rem (12px) */
+  --text-sm: .875rem; /* 0.875rem (14px) */
+  --text-base: 1rem; /* 1rem (16px) */
+  --text-lg: 1.125rem; /* 1.125rem (18px) */
+  --text-xl: 1.25rem; /* 1.25rem (20px) */
+  --text-2xl: 1.5rem; /* 1.5rem (24px) */
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
 
 body {
   background: var(--bg);
@@ -52,7 +63,10 @@ body::before {
 
 body::after {
   content: '';
-  position: fixed; inset: 0; z-index: 1; pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
   background: repeating-linear-gradient(
     0deg, transparent, transparent 3px,
     rgba(0,0,0,.025) 3px, rgba(0,0,0,.025) 4px
@@ -62,26 +76,36 @@ body::after {
 /* ── SIDEBAR ── */
 .sidebar {
   position: fixed;
-  left: 0; top: 0; bottom: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
   width: var(--sidebar-w);
   background: rgba(5,14,26,.96);
   border-right: 1px solid var(--border);
   z-index: 20;
-  display: flex; flex-direction: column; align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 24px 0 20px;
 }
 .sidebar-stripe {
   position: absolute;
-  right: 0; top: 0; bottom: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
   width: 5px;
   background: linear-gradient(180deg, var(--red) 0%, #7a0f0f 100%);
 }
 .nav-dots {
-  display: flex; flex-direction: column; gap: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   margin: auto 0;
 }
 .nav-dot {
-  width: 7px; height: 7px; border-radius: 50%;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
   background: transparent;
   border: 1px solid rgba(77,184,232,.4);
   cursor: pointer;
@@ -94,7 +118,8 @@ body::after {
 }
 .sidebar-bottom {
   font-family: 'Share Tech Mono', monospace;
-  font-size: 9px; color: rgba(77,184,232,.3);
+  font-size: 9px;
+  color: rgba(77,184,232,.3);
   letter-spacing: .15em;
   writing-mode: vertical-rl;
   transform: rotate(180deg);
@@ -103,7 +128,8 @@ body::after {
 
 /* ── PAGE ── */
 .page {
-  position: relative; z-index: 5;
+  position: relative;
+  z-index: 5;
   margin-left: var(--sidebar-w);
   max-width: 900px;
   padding: 0 52px 100px 52px;
@@ -119,31 +145,42 @@ body::after {
 .hero::before {
   content: '';
   position: absolute;
-  top: 64px; right: 0;
-  width: 28px; height: 28px;
+  top: 64px;
+  right: 0;
+  width: 28px;
+  height: 28px;
   border-top: 2px solid rgba(77,184,232,.3);
   border-right: 2px solid rgba(77,184,232,.3);
 }
 .hero::after {
   content: '';
   position: absolute;
-  bottom: -1px; left: 0;
-  width: 90px; height: 2px;
-  background: var(--blue); opacity: .7;
+  bottom: -1px;
+  left: 0;
+  width: 90px;
+  height: 2px;
+  background: var(--blue);
+  opacity: .7;
 }
 
 .status-pill {
-  display: inline-flex; align-items: center; gap: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   background: rgba(77,184,232,.07);
   border: 1px solid rgba(77,184,232,.22);
   padding: 5px 14px 5px 10px;
   margin-bottom: 26px;
   font-family: 'Share Tech Mono', monospace;
-  font-size: 10.5px; color: var(--blue);
-  letter-spacing: .14em; text-transform: uppercase;
+  font-size: 10.5px;
+  color: var(--blue);
+  letter-spacing: .14em;
+  text-transform: uppercase;
 }
 .status-dot {
-  width: 6px; height: 6px; border-radius: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
   background: var(--blue);
   animation: blink 2.4s ease-in-out infinite;
 }
@@ -152,21 +189,28 @@ body::after {
   font-family: 'Rajdhani', sans-serif;
   font-weight: 700;
   font-size: clamp(44px, 8vw, 76px);
-  line-height: .92; letter-spacing: -.01em;
-  color: var(--white); margin-bottom: 10px;
+  line-height: .92;
+  letter-spacing: -.01em;
+  color: var(--white);
+  margin-bottom: 10px;
 }
-.hero-name em { font-style: normal; color: var(--blue); }
+.hero-name em {
+  font-style: normal;
+  color: var(--blue);
+}
 
 .hero-role {
   font-family: 'Rajdhani', sans-serif;
-  font-weight: 500; font-size: 18px;
+  font-weight: 500;
+  font-size: var(--text-lg);
   color: var(--amber);
-  letter-spacing: .18em; text-transform: uppercase;
+  letter-spacing: .18em;
+  text-transform: uppercase;
   margin-bottom: 22px;
 }
 
 .hero-summary {
-  font-size: 15px;
+  font-size: var(--text-base);
   color: var(--muted);
   line-height: 1.8;
   margin-bottom: 30px;
@@ -175,8 +219,12 @@ body::after {
 }
 
 .contact-row {
-  display: flex; flex-wrap: wrap; gap: 6px 22px;
-  font-family: 'Share Tech Mono', monospace; font-size: 11.5px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 22px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: var(--text-sm);
+  padding-right: 1em;
 }
 .contact-item { display: flex; align-items: center; gap: 7px; }
 .ci-key { color: rgba(77,184,232,.55); }
@@ -189,24 +237,31 @@ body::after {
   padding: 48px 0 0;
   animation: fadeUp .6s ease both;
 }
-.section:nth-child(2){ animation-delay:.08s }
-.section:nth-child(3){ animation-delay:.16s }
-.section:nth-child(4){ animation-delay:.24s }
+.section:nth-child(2) { animation-delay: .08s }
+.section:nth-child(3) { animation-delay: .16s }
+.section:nth-child(4) { animation-delay: .24s }
 
 .sec-head {
-  display: flex; align-items: center; gap: 14px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
   margin-bottom: 24px;
 }
 .sec-num {
   font-family: 'Share Tech Mono', monospace;
-  font-size: 10px; color: rgba(77,184,232,.45);
-  letter-spacing: .18em; flex-shrink: 0;
+  font-size: 10px;
+  color: rgba(77,184,232,.45);
+  letter-spacing: .18em;
+  flex-shrink: 0;
 }
 .sec-title {
   font-family: 'Rajdhani', sans-serif;
-  font-weight: 600; font-size: 20px;
-  letter-spacing: .1em; text-transform: uppercase;
-  color: var(--white); flex-shrink: 0;
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--white);
+  flex-shrink: 0;
 }
 .sec-rule {
   flex: 1; height: 1px;
@@ -218,13 +273,16 @@ body::after {
   background: var(--bg-panel);
   border: 1px solid var(--border);
   border-left: 3px solid var(--blue-dim);
-  padding: 20px 22px; margin-bottom: 12px;
+  padding: 20px 22px;
+  margin-bottom: 12px;
   position: relative;
   transition: border-left-color .2s, background .2s;
 }
 .entry::after {
   content: '';
-  position: absolute; top: 0; right: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
   border-style: solid;
   border-width: 0 13px 13px 0;
   border-color: transparent rgba(77,184,232,.18) transparent transparent;
@@ -250,7 +308,7 @@ body::after {
   letter-spacing: .04em;
 }
 .entry-org {
-  font-size: 13.5px;
+  font-size: var(--text-sm);
   font-weight: 400;
   color: var(--amber);
   letter-spacing: .05em;
@@ -259,20 +317,26 @@ body::after {
 .entry-date,
 .entry-location {
   font-family: 'Share Tech Mono', monospace;
-  font-size: 10.5px;
+  font-size: var(--text-xs);
   color: var(--muted);
   opacity: .7;
   white-space: nowrap;
 }
 .entry-body {
-  font-size: 13.5px; color: var(--muted);
-  line-height: 1.72; margin-top: 8px;
+  font-size: 13.5px;
+  color: var(--muted);
+  line-height: 1.72;
+  margin-top: 8px;
 }
 .entry-body ul { list-style: none; margin-top: 6px; }
 .entry-body li { padding-left: 14px; position: relative; margin-bottom: 3px; }
 .entry-body li::before {
-  content: '›'; position: absolute; left: 0;
-  color: var(--blue); font-size: 15px; line-height: 1.45;
+  content: '›';
+  position: absolute;
+  left: 0;
+  color: var(--blue);
+  font-size: var(--text-base);
+  line-height: 1.45;
 }
 
 /* ── SKILLS ── */
@@ -280,27 +344,37 @@ body::after {
 .skill-bar-row {
   display: grid;
   grid-template-columns: 150px 1fr 34px;
-  align-items: center; gap: 12px;
+  align-items: center;
+  gap: 12px;
 }
 .sb-label {
   font-family: 'Share Tech Mono', monospace;
-  font-size: 11px; color: var(--muted);
-  text-transform: uppercase; letter-spacing: .08em;
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .08em;
 }
 .sb-track {
   height: 3px;
   background: rgba(77,184,232,.1);
   border: 1px solid rgba(77,184,232,.15);
-  position: relative; overflow: hidden;
+  position: relative;
+  overflow: hidden;
 }
 .sb-fill {
-  position: absolute; left: 0; top: 0; bottom: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
   background: linear-gradient(90deg, var(--blue-dim), var(--blue));
   transition: width 1.3s cubic-bezier(.16,1,.3,1);
 }
 .sb-val {
   font-family: 'Share Tech Mono', monospace;
-  font-size: 10px; color: var(--blue); text-align: right; opacity: .75;
+  font-size: 10px;
+  color: var(--blue);
+  text-align: right;
+  opacity: .75;
 }
 
 .tag-groups {
@@ -311,10 +385,15 @@ body::after {
 .tag-group {
   background: var(--bg-panel);
   border: 1px solid var(--border);
-  padding: 14px 16px; position: relative;
+  padding: 14px 16px;
+  position: relative;
 }
 .tag-group::after {
-  content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   height: 2px;
   background: linear-gradient(90deg, var(--blue-dim), transparent);
 }
@@ -331,15 +410,18 @@ body::after {
 .tag-list { display: flex; flex-wrap: wrap; gap: 5px; }
 .tag {
   font-family: 'Share Tech Mono', monospace;
-  font-size: 10.5px; color: var(--muted);
+  font-size: 10.5px;
+  color: var(--muted);
   background: rgba(77,184,232,.06);
   border: 1px solid rgba(77,184,232,.18);
-  padding: 3px 9px; letter-spacing: .04em;
+  padding: 3px 9px;
+  letter-spacing: .04em;
   transition: all .18s;
 }
 .tag:hover {
   background: rgba(77,184,232,.14);
-  color: var(--blue); border-color: rgba(77,184,232,.45);
+  color: var(--blue);
+  border-color: rgba(77,184,232,.45);
 }
 
 /* ── EDUCATION ── */
@@ -351,18 +433,24 @@ body::after {
 
 /* ── FOOTER ── */
 .foot {
-  margin-top: 60px; padding: 16px 0;
+  margin-top: 60px;
+  padding: 16px 0;
   border-top: 1px solid rgba(77,184,232,.1);
-  display: flex; justify-content: space-between; align-items: center;
-  flex-wrap: wrap; gap: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
   font-family: 'Share Tech Mono', monospace;
-  font-size: 9.5px; color: rgba(77,184,232,.25);
-  letter-spacing: .12em; text-transform: uppercase;
+  font-size: 9.5px;
+  color: rgba(77,184,232,.25);
+  letter-spacing: .12em;
+  text-transform: uppercase;
 }
 
 /* ── ANIMATIONS ── */
 @keyframes blink {
-  0%,100% { opacity:1; } 50% { opacity:.25; }
+  0%,100% { opacity: 1; } 50% { opacity: .25; }
 }
 @keyframes fadeDown {
   from { opacity:0; transform:translateY(-18px); }
