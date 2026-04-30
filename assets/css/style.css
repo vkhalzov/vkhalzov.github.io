@@ -16,7 +16,7 @@
   --white:     #ddeeff;
   --muted:     #6a9abf;
   --border:    rgba(77,184,232,0.2);
-  --sidebar-w: 48px;
+  --sidebar-w: 54px;
   /* Font size */
   --text-xs: .75rem; /* 0.75rem (12px) */
   --text-sm: .875rem; /* 0.875rem (14px) */
@@ -28,7 +28,7 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 body {
@@ -102,8 +102,8 @@ body::after {
   margin: auto 0;
 }
 .nav-dot {
-  width: 7px;
-  height: 7px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: transparent;
   border: 1px solid rgba(77,184,232,.4);
@@ -130,13 +130,13 @@ body::after {
   position: relative;
   z-index: 5;
   margin-left: var(--sidebar-w);
-  max-width: 900px;
-  padding: 0 52px 100px 52px;
+  max-width: 1040px;
+  padding: 0 60px 100px 60px;
 }
 
 /* ── HERO ── */
 .hero {
-  padding: 64px 0 44px;
+  padding: 72px 0 52px;
   border-bottom: 1px solid var(--border);
   position: relative;
   animation: fadeDown .7s ease both;
@@ -144,10 +144,10 @@ body::after {
 .hero::before {
   content: '';
   position: absolute;
-  top: 64px;
+  top: 72px;
   right: 0;
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   border-top: 2px solid rgba(77,184,232,.3);
   border-right: 2px solid rgba(77,184,232,.3);
 }
@@ -187,7 +187,7 @@ body::after {
 .hero-name {
   font-family: 'Rajdhani', sans-serif;
   font-weight: 700;
-  font-size: clamp(44px, 8vw, 76px);
+  font-size: clamp(50px, 8vw, 86px);
   line-height: .92;
   letter-spacing: -.01em;
   color: var(--white);
@@ -272,8 +272,8 @@ body::after {
   background: var(--bg-panel);
   border: 1px solid var(--border);
   border-left: 3px solid var(--blue-dim);
-  padding: 20px 22px;
-  margin-bottom: 12px;
+  padding: 24px 26px;
+  margin-bottom: 14px;
   position: relative;
   transition: border-left-color .2s, background .2s;
 }
@@ -361,7 +361,7 @@ body::after {
 }
 .skill-bar-row {
   display: grid;
-  grid-template-columns: 150px 1fr 34px;
+  grid-template-columns: 170px 1fr 34px;
   align-items: center;
   gap: 12px;
 }
@@ -398,14 +398,14 @@ body::after {
 /* ── EDUCATION ── */
 .edu-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
   gap: .75rem;
 }
 
 /* ── LANGUAGES ── */
 .lang-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
   gap: .75rem;
 }
 .lang-segs {
@@ -454,8 +454,8 @@ body::after {
   to   { opacity:1; transform:translateY(0); }
 }
 
-@media (max-width: 680px) {
-  .page { padding: 0 20px 70px 20px; }
-  .hero-name { font-size: 38px; }
-  .skill-bar-row { grid-template-columns: 110px 1fr 28px; }
+@media (max-width: 720px) {
+  .page { padding: 0 24px 80px 24px; }
+  .hero-name { font-size: 42px; }
+  .skill-bar-row { grid-template-columns: 120px 1fr 30px; }
 }
