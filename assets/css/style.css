@@ -211,7 +211,6 @@ body::after {
 .hero-summary {
   font-size: var(--text-base);
   color: var(--muted);
-  line-height: 1.8;
   margin-bottom: 30px;
   text-align: justify;
   padding-right: 1em;
@@ -325,7 +324,6 @@ body::after {
 .entry-body {
   font-size: var(--text-sm);
   color: var(--muted);
-  line-height: 1.72;
   margin-top: 8px;
 }
 .entry-stack {
