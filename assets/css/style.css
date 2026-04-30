@@ -428,7 +428,29 @@ body::after {
 .edu-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 12px;
+  gap: .75rem;
+}
+
+/* ── LANGUAGES ── */
+.lang-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: .75rem;
+}
+.lang-segs {
+  display: flex;
+  gap: 4px;
+}
+.ls {
+  width: 20px;
+  height: 4px;
+  background: rgba(77,184,232,.1);
+  border: 1px solid rgba(77,184,232,.18);
+}
+.ls--on {
+  background: var(--blue);
+  border-color: var(--blue);
+  box-shadow: 0 0 5px rgba(77,184,232,.5);
 }
 
 /* ── FOOTER ── */
