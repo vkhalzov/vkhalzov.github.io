@@ -119,7 +119,7 @@ body::after {
 .sidebar-bottom {
   font-family: 'Share Tech Mono', monospace;
   font-size: 9px;
-  color: rgba(77,184,232,.3);
+  color: rgba(77,184,232,.75);
   letter-spacing: .15em;
   writing-mode: vertical-rl;
   transform: rotate(180deg);
@@ -227,7 +227,7 @@ body::after {
   padding-right: 1em;
 }
 .contact-item { display: flex; align-items: center; gap: 7px; }
-.ci-key { color: rgba(77,184,232,.55); }
+.ci-key { color: rgba(77,184,232,.75); }
 .ci-val { color: var(--muted); }
 .ci-val a { color: inherit; text-decoration: none; }
 .ci-val a:hover { color: var(--blue); }
@@ -250,7 +250,7 @@ body::after {
 .sec-num {
   font-family: 'Share Tech Mono', monospace;
   font-size: 10px;
-  color: rgba(77,184,232,.45);
+  color: rgba(77,184,232,.75);
   letter-spacing: .18em;
   flex-shrink: 0;
 }
@@ -465,7 +465,7 @@ body::after {
   gap: 10px;
   font-family: 'Share Tech Mono', monospace;
   font-size: 9.5px;
-  color: rgba(77,184,232,.25);
+  color: rgba(77,184,232,.75);
   letter-spacing: .12em;
   text-transform: uppercase;
 }
