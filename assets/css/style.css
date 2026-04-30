@@ -328,6 +328,15 @@ body::after {
   line-height: 1.72;
   margin-top: 8px;
 }
+.entry-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+
 .entry-body ul { list-style: none; margin-top: 6px; }
 .entry-body li { padding-left: 14px; position: relative; margin-bottom: 3px; }
 .entry-body li::before {
@@ -405,7 +414,6 @@ body::after {
   text-transform: uppercase;
   color: var(--blue);
   opacity: .7;
-  margin-bottom: 10px;
 }
 .tag-list { display: flex; flex-wrap: wrap; gap: 5px; }
 .tag {
