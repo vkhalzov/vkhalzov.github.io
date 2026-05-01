@@ -100,6 +100,9 @@
             <li>Developed across billing, orders, inventory, and identity domains of a multi-engine Rails shipping SaaS; built end-to-end document generation (packing slips, commercial invoices, PDF billing invoices) using Prawn PDF</li>
             <li>Implemented real-time order updates via ActionCable; added HTTP caching and query guards for performance</li>
           </ul>
+          <div class="expand-wrap">
+            <button class="expand-btn"><span class="expand-lbl">[ EXPAND ENTRY ]</span><span class="collapse-lbl">[ COLLAPSE ENTRY ]</span></button>
+          </div>
           <div class="entry-stack">
             <span class="tag">Rails</span>
             <span class="tag">PostgreSQL</span>
@@ -137,6 +140,9 @@
             <li>Executed a full codebase rename/migration of a core domain concept across controllers, views, routes, jobs, and database</li>
             <li>Integrated Sentry.io for exception tracking; added Docker container startup sequencing fixes</li>
           </ul>
+          <div class="expand-wrap">
+            <button class="expand-btn"><span class="expand-lbl">[ EXPAND ENTRY ]</span><span class="collapse-lbl">[ COLLAPSE ENTRY ]</span></button>
+          </div>
           <div class="entry-stack">
             <span class="tag">Rails</span>
             <span class="tag">PostgreSQL</span>
@@ -178,6 +184,9 @@
             <li>Built REST API endpoints for mobile app integration</li>
             <li>Applied security patches and ensured custom code compliance with patched core</li>
           </ul>
+          <div class="expand-wrap">
+            <button class="expand-btn"><span class="expand-lbl">[ EXPAND ENTRY ]</span><span class="collapse-lbl">[ COLLAPSE ENTRY ]</span></button>
+          </div>
           <div class="entry-stack">
             <span class="tag">PHP 5/7</span>
             <span class="tag">Magento 1/2</span>
@@ -211,6 +220,9 @@
             <li>Re-implemented all active custom modifications after each version upgrade (v4.0-4.7 and migration to X-Cart 5), adapting custom code to the changed API and architecture of each target version</li>
             <li>Provided ongoing warranty support and direct client communication; 8+ high-volume merchants on multi-year engagements</li>
           </ul>
+          <div class="expand-wrap">
+            <button class="expand-btn"><span class="expand-lbl">[ EXPAND ENTRY ]</span><span class="collapse-lbl">[ COLLAPSE ENTRY ]</span></button>
+          </div>
           <div class="entry-stack">
             <span class="tag">PHP 4/5</span>
             <span class="tag">MySQL</span>
@@ -418,6 +430,13 @@
     });
   }, { threshold: 0.25 });
   secs.forEach(s => s && io.observe(s));
+
+  document.querySelectorAll('.expand-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const body = btn.closest('.entry-body');
+      body.classList.toggle('is-expanded');
+    });
+  });
 </script>
 </body>
 </html>

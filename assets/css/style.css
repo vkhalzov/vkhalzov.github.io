@@ -366,6 +366,30 @@ body::after {
   line-height: 1.45;
 }
 
+.expand-wrap {
+  display: none;
+  justify-content: center;
+  margin: .5rem 0;
+}
+.expand-btn {
+  background: none;
+  border: 1px solid rgba(77,184,232,.3);
+  color: var(--blue);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: var(--text-xs);
+  letter-spacing: .1em;
+  padding: 4px 10px;
+  cursor: pointer;
+  transition: all .18s;
+}
+.expand-btn:hover {
+  background: rgba(77,184,232,.1);
+  border-color: var(--blue);
+}
+.collapse-lbl { display: none; }
+.is-expanded .expand-lbl { display: none; }
+.is-expanded .collapse-lbl { display: inline; }
+
 /* ── SKILLS ── */
 .skill-bars {
   display: flex;
@@ -532,7 +556,7 @@ body::after {
     font-size: var(--text-xs);
   }
   .entry-body {
-    font-size: var(--text-sm);
+    font-size: var(--text-base);
   }
   .tg-label {
     font-size: var(--text-xs);
@@ -546,4 +570,7 @@ body::after {
   .edu-grid,
   .lang-grid { flex-direction: column; }
   .skill-bar-row { grid-template-columns: 1fr; }
+  .entry-body ul { display: none; }
+  .entry-body.is-expanded ul { display: block; }
+  .expand-wrap { display: flex; }
 }
