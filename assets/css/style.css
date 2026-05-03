@@ -622,9 +622,6 @@ body::after {
 
 /* --bp-md = 40rem - 640px */
 @media (width < 40rem) {
-  .status-pill {
-    flex: 1 1 100%;
-  }
   .lang-switch {
     margin-left: auto;
   }
