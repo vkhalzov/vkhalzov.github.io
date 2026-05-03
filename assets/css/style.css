@@ -175,18 +175,41 @@ body::after {
 /* ── SITE HEADER ── */
 .site-header {
   padding: 48px 0 26px;
-  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
   animation: fadeDown .7s ease both;
 }
-.site-header::before {
-  content: '';
-  position: absolute;
-  top: 48px;
-  right: 0;
-  width: 32px;
-  height: 32px;
-  border-top: 2px solid rgba(77,184,232,.3);
-  border-right: 2px solid rgba(77,184,232,.3);
+/* ── LANG SWITCHER ── */
+.lang-switch {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.lang-btn {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: var(--text-xs);
+  letter-spacing: .12em;
+  padding: 5px 12px 5px 12px;
+  border: 1px solid rgba(77,184,232,.25);
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all .2s;
+  background: rgba(8,22,38,.9);
+  color: rgba(77,184,232,.4);
+}
+.no-border-r { border-right: none; }
+.no-border-l { border-left: none; }
+.lang-btn.active {
+  background: rgba(77,184,232,.12);
+  color: var(--blue);
+  border-color: rgba(77,184,232,.5);
+}
+.lang-btn:not(.active):hover {
+  color: rgba(77,184,232,.7);
+  background: rgba(77,184,232,.06);
 }
 
 /* ── HERO ── */
@@ -599,6 +622,12 @@ body::after {
 
 /* --bp-md = 40rem - 640px */
 @media (width < 40rem) {
+  .status-pill {
+    flex: 1 1 100%;
+  }
+  .lang-switch {
+    margin-left: auto;
+  }
   body {
     line-height: 1.3;
   }
