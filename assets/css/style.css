@@ -518,6 +518,44 @@ body::after {
   text-transform: uppercase;
 }
 
+/* ── SCROLL TO TOP ── */
+.scroll-top {
+  position: fixed;
+  bottom: 24px;
+  right: 16px;
+  z-index: 50;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid rgba(77,184,232,.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(77,184,232,.5);
+  text-decoration: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s, border-color .2s, color .2s, box-shadow .2s;
+}
+.scroll-top::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px solid rgba(77,184,232,.1);
+}
+.scroll-top svg { width: 16px; height: 16px; }
+.scroll-top:hover {
+  border-color: rgba(77,184,232,.7);
+  color: var(--blue);
+  box-shadow: 0 0 10px rgba(77,184,232,.3);
+}
+.scroll-top.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 /* ── ANIMATIONS ── */
 @keyframes blink {
   0%,100% { opacity: 1; } 50% { opacity: .25; }
