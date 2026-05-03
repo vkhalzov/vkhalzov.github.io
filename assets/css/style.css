@@ -198,7 +198,7 @@ body::after {
   text-decoration: none;
   transition: all .2s;
   background: rgba(8,22,38,.9);
-  color: rgba(77,184,232,.65);
+  color: var(--muted);
 }
 .no-border-r { border-right: none; }
 .no-border-l { border-left: none; }
@@ -208,7 +208,7 @@ body::after {
   border-color: rgba(77,184,232,.5);
 }
 .lang-btn:not(.active):hover {
-  color: rgba(77,184,232,.7);
+  color: var(--blue);
   background: rgba(77,184,232,.06);
 }
 
