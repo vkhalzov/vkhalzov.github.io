@@ -252,7 +252,7 @@ body::after {
 }
 
 .hero-name {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Tektur', sans-serif;
   font-weight: 700;
   font-size: clamp(3rem, 8vw, 5rem);
   line-height: .92;
@@ -266,9 +266,9 @@ body::after {
 }
 
 .hero-role {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Tektur', sans-serif;
   font-weight: 500;
-  font-size: var(--text-xl);
+  font-size: var(--text-lg);
   color: var(--amber);
   letter-spacing: .18em;
   text-transform: uppercase;
@@ -320,7 +320,7 @@ body::after {
   flex-shrink: 0;
 }
 .sec-title {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Tektur', sans-serif;
   font-weight: 600;
   font-size: var(--text-2xl);
   letter-spacing: .1em;
@@ -372,7 +372,7 @@ body::after {
   margin-bottom: 4px;
 }
 .entry-title {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Tektur', sans-serif;
   font-weight: 600;
   font-size: var(--text-xl);
   color: var(--white);
@@ -462,7 +462,7 @@ body::after {
   gap: .75rem;
 }
 .tg-label {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Tektur', sans-serif;
   font-size: var(--text-sm);
   font-weight: 600;
   letter-spacing: .13em;
