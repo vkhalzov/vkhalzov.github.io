@@ -172,22 +172,29 @@ body::after {
   padding: 0 60px 60px 60px;
 }
 
-/* ── HERO ── */
-.hero {
-  padding: 72px 0 52px;
-  border-bottom: 1px solid var(--border);
+/* ── SITE HEADER ── */
+.site-header {
+  padding: 48px 0 26px;
   position: relative;
   animation: fadeDown .7s ease both;
 }
-.hero::before {
+.site-header::before {
   content: '';
   position: absolute;
-  top: 72px;
+  top: 48px;
   right: 0;
   width: 32px;
   height: 32px;
   border-top: 2px solid rgba(77,184,232,.3);
   border-right: 2px solid rgba(77,184,232,.3);
+}
+
+/* ── HERO ── */
+.hero {
+  padding: 0 0 52px;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  animation: fadeDown .7s ease both;
 }
 .hero::after {
   content: '';
@@ -207,7 +214,6 @@ body::after {
   background: rgba(77,184,232,.07);
   border: 1px solid rgba(77,184,232,.22);
   padding: 5px 14px 5px 10px;
-  margin-bottom: 26px;
   font-family: 'Share Tech Mono', monospace;
   font-size: var(--text-xs);
   color: var(--blue);
