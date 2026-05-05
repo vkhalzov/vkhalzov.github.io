@@ -1,0 +1,13 @@
+{
+  "name": "vkhalzov.github.io",
+  "version": "1.0.0",
+  "description": "Personal website and resume of Vladimir Khalzov, hosted via GitHub Pages.",
+  "author": "Vladimir Khalzov",
+  "license": "ISC",
+  "scripts": {
+    "build:css": "lightningcss --minify assets/css/style.css -o assets/css/style.min.css"
+  },
+  "devDependencies": {
+    "lightningcss-cli": "^1.32.0"
+  }
+}
