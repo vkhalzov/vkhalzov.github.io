@@ -51,7 +51,7 @@ All styles live in `assets/css/style.css`. No preprocessor — plain CSS with cu
 
 | Font | Usage |
 |------|-------|
-| `Rajdhani` | Headings, section titles, entry titles |
+| `Tektur` | Headings, section titles, entry titles (supports Cyrillic) |
 | `Share Tech Mono` | UI labels, dates, monospace HUD elements |
 | `Exo 2` | Body text, summaries |
 
@@ -93,3 +93,19 @@ Languages use `.entry` cards (same as experience/education) with `.lang-segs` in
 ## Navigation
 
 Nav dots in the sidebar are wired to section IDs via `IntersectionObserver` in the inline `<script>` at the bottom of `index.html`. Add a new dot and corresponding section ID to extend navigation.
+
+## Language variants
+
+Two HTML files — `index.html` (EN) and `index-ru.html` (RU). Both are standalone; there is no build step or shared template. Keep them in sync manually when adding new sections or structural changes.
+
+The language switcher in `.site-header` uses a `<span class="lang-btn active">` for the current language (non-clickable) and an `<a class="lang-btn">` for the other. Utility classes `.no-border-r` / `.no-border-l` collapse the shared border between the two buttons.
+
+## JavaScript
+
+`assets/js/main.js` — expand/collapse for `.entry` cards and scroll-to-top visibility.
+
+`assets/js/metrika.js` — Yandex Metrika tracker (ID `109026309`). Loaded in `<head>` without `defer` on both HTML files for accurate bounce tracking. A `<noscript>` pixel is placed at the end of `<body>`.
+
+## Analytics
+
+Yandex Metrika is the analytics provider (webvisor, clickmap, accurate bounce tracking enabled). Both `index.html` and `index-ru.html` include it.

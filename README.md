@@ -12,11 +12,12 @@ This repository contains the source for my personal website — a portfolio and 
 
 ```
 /
-├── index.html        # Main entry point
+├── index.html          # EN version
+├── index-ru.html       # RU version
 ├── assets/
-│   ├── css/          # Stylesheets
-│   ├── js/           # Scripts
-│   └── img/          # Images and icons
+│   ├── css/            # Stylesheets
+│   ├── js/             # Scripts
+│   └── img/            # Images and icons
 └── README.md
 ```
 
