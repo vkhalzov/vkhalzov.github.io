@@ -12,13 +12,26 @@ This repository contains the source for my personal website — a portfolio and 
 
 ```
 /
-├── index.html          # EN version
-├── index-ru.html       # RU version
+├── index.html            # EN version
+├── index-ru.html         # RU version
 ├── assets/
-│   ├── css/            # Stylesheets
-│   ├── js/             # Scripts
-│   └── img/            # Images and icons
+│   ├── css/
+│   │   ├── style.css     # Source
+│   │   └── style.min.css # Minified (lightningcss)
+│   ├── js/
+│   │   ├── main.js       # Source
+│   │   ├── main.min.js   # Minified (terser)
+│   │   └── metrika.js    # Yandex Metrika tracker
+│   └── img/
+├── package.json
 └── README.md
+```
+
+## Build
+
+```bash
+npm install
+npm run build
 ```
 
 ## Deployment

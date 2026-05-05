@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Personal resume/portfolio site for Vladimir Khalzov, hosted at https://vkhalzov.github.io via GitHub Pages. Push to `main` deploys automatically.
 
-Pure static site — no build step, no package manager, no dependencies beyond Google Fonts.
+Static site with a minimal build step for asset minification (CSS via lightningcss, JS via terser). No framework, no bundler.
 
 ## Previewing locally
 
@@ -100,11 +100,21 @@ Two HTML files — `index.html` (EN) and `index-ru.html` (RU). Both are standalo
 
 The language switcher in `.site-header` uses a `<span class="lang-btn active">` for the current language (non-clickable) and an `<a class="lang-btn">` for the other. Utility classes `.no-border-r` / `.no-border-l` collapse the shared border between the two buttons.
 
+## Build
+
+```bash
+npm run build       # minify CSS + JS
+npm run build:css   # lightningcss → assets/css/style.min.css
+npm run build:js    # terser → assets/js/main.min.js
+```
+
+Edit source files (`style.css`, `main.js`), run the build, then commit both source and minified output. Update the `?v=` timestamp in both HTML `<link>` and `<script>` tags after each build.
+
 ## JavaScript
 
-`assets/js/main.js` — expand/collapse for `.entry` cards and scroll-to-top visibility.
+`assets/js/main.js` — source. Expand/collapse for `.entry` cards and scroll-to-top visibility. Deployed as `main.min.js`.
 
-`assets/js/metrika.js` — Yandex Metrika tracker (ID `109026309`). Loaded in `<head>` without `defer` on both HTML files for accurate bounce tracking. A `<noscript>` pixel is placed at the end of `<body>`.
+`assets/js/metrika.js` — Yandex Metrika tracker (ID `109026309`). Loaded in `<head>` without `defer` on both HTML files for accurate bounce tracking. A `<noscript>` pixel is placed at the end of `<body>`. Not minified — left as-is.
 
 ## Analytics
 
