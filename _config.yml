@@ -12,7 +12,10 @@
 title: "Vladimir Khalzov · Senior Full-Stack Engineer"
 email: "vladimir.khalzov@gmail.com"
 url: "https://vkhalzov.github.io" # the base hostname & protocol for your site
-baseurl: ""                        # the subpath of your site, e.g. /blog
+baseurl: ""                       # the subpath of your site, e.g. /blog
+
+sass:
+  style: compressed
 
 # Exclude from processing
 exclude:
@@ -27,6 +30,5 @@ exclude:
   - .idea/
   - .gitignore
   - assets/js/main.js
-  - assets/css/style.css
   - index-en.html
   - index-ru.html
