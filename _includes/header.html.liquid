@@ -1,0 +1,17 @@
+{% assign languages = site.data.languages %}
+{% assign str = t.site.strings %}
+<header class="site-header">
+  <div class="status-pill">
+    <div class="status-dot"></div>
+    {{ str.available_for_opportunities }}
+  </div>
+  <div class="lang-switch">
+    {% for lang in languages %}
+      {% if lang.code == page.lang %}
+        <span class="lang-btn{% if forloop.first %} no-border-r{% else %} no-border-l{% endif %} active">{{ lang.label }}</span>
+      {% else %}
+        <a href="{{ lang.url }}" class="lang-btn{% if forloop.first %} no-border-r{% else %} no-border-l{% endif %}">{{ lang.label }}</a>
+      {% endif %}
+    {% endfor %}
+  </div>
+</header>

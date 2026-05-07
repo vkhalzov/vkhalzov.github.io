@@ -1,0 +1,21 @@
+{% assign profile = t.resume.profile %}
+
+<section class="hero" id="profile">
+  <h1 class="hero-name">{{ profile.firstname }}<br><em>{{ profile.lastname }}</em></h1>
+  <p class="hero-role">{{ profile.role }}</p>
+  <p class="hero-summary">{{ profile.summary | strip | newline_to_br }}</p>
+  <div class="contact-row">
+    {% for item in profile.contact %}
+      <div class="contact-item">
+        <span class="ci-key">{{ item.key }}</span>
+        <span class="ci-val">
+          {% if item.href %}
+            <a href="{{ item.href }}">{{ item.value }}</a>
+          {% else %}
+            {{ item.value }}
+          {% endif %}
+        </span>
+      </div>
+    {% endfor %}
+  </div>
+</section>

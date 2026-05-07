@@ -1,0 +1,44 @@
+{% assign str = t.site.strings %}
+{% assign exp = t.resume.experience %}
+
+<section class="section" id="experience">
+  <div class="sec-head">
+    <span class="sec-num">01 /</span>
+    <h2 class="sec-title">{{ str.experience }}</h2>
+    <div class="sec-rule"></div>
+  </div>
+  <div class="entry-list">
+    {% for job in exp %}
+      <div class="entry">
+        <div class="entry-top">
+          <div>
+            <div class="entry-title">{{ job.title }}</div>
+            <div class="entry-org">{{ job.org }}</div>
+          </div>
+          <div>
+            <div class="entry-date">{{ job.date }}</div>
+            <div class="entry-location">{{ job.location }}</div>
+          </div>
+        </div>
+        <div class="entry-body">
+          {{ job.summary }}
+          {% if job.bullets %}
+          <ul>
+            {% for bullet in job.bullets %}
+              <li>{{ bullet }}</li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+          <div class="expand-wrap">
+            <button class="expand-btn"><span class="expand-lbl">{{ str.btn_expand_entry }}</span><span class="collapse-lbl">{{ str.btn_collapse_entry }}</span></button>
+          </div>
+          <div class="entry-stack">
+            {% for tag in job.stack %}
+              <span class="tag">{{ tag }}</span>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>

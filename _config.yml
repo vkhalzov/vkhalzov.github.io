@@ -1,0 +1,32 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+title: "Vladimir Khalzov · Senior Full-Stack Engineer"
+email: "vladimir.khalzov@gmail.com"
+url: "https://vkhalzov.github.io" # the base hostname & protocol for your site
+baseurl: ""                        # the subpath of your site, e.g. /blog
+
+# Exclude from processing
+exclude:
+  - node_modules/
+  - package.json
+  - package-lock.json
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - CLAUDE.md
+  - .claude/
+  - .idea/
+  - .gitignore
+  - assets/js/main.js
+  - assets/css/style.css
+  - index-en.html
+  - index-ru.html

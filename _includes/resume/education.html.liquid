@@ -1,0 +1,26 @@
+{% assign str = t.site.strings %}
+{% assign edu = t.resume.education %}
+
+<section class="section" id="education">
+  <div class="sec-head">
+    <span class="sec-num">03 /</span>
+    <h2 class="sec-title">{{ str.education }}</h2>
+    <div class="sec-rule"></div>
+  </div>
+  <div class="edu-grid">
+    {% for entry in edu %}
+      <div class="entry">
+        <div class="entry-top">
+          <div>
+            <div class="entry-title">{{ entry.title }}</div>
+            <div class="entry-org">{{ entry.org }}</div>
+          </div>
+          <div class="entry-date">{{ entry.date }}</div>
+        </div>
+        {% if entry.note %}
+          <div class="entry-body">{{ entry.note }}</div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</section>
