@@ -1,5 +1,13 @@
 // _variables.scss
 
+/* Font sizes */
+$text-xs:   .75rem;   /* 12px */
+$text-sm:   .875rem;  /* 14px */
+$text-base: 1rem;     /* 16px */
+$text-lg:   1.125rem; /* 18px */
+$text-xl:   1.25rem;  /* 20px */
+$text-2xl:  1.5rem;   /* 24px */
+
 :root {
   --bg:        #050e1a;
   --bg-panel:  rgba(8, 22, 38, 0.9);
@@ -14,15 +22,10 @@
   --border:    rgba(77,184,232,0.2);
   --sidebar-w: 54px;
   /* Font sizes */
-  --text-xs:   .75rem;   /* 12px */
-  --text-sm:   .875rem;  /* 14px */
-  --text-base: 1rem;     /* 16px */
-  --text-lg:   1.125rem; /* 18px */
-  --text-xl:   1.25rem;  /* 20px */
-  --text-2xl:  1.5rem;   /* 24px */
-  /* Breakpoints — rem uses browser default 16px base */
-  --bp-sm: 40rem;  /* 640px  */
-  --bp-md: 48rem;  /* 768px  */
-  --bp-lg: 64rem;  /* 1024px */
-  --bp-xl: 80rem;  /* 1280px */
+  --text-xs:   #{$text-xs};
+  --text-sm:   #{$text-sm};
+  --text-base: #{$text-base};
+  --text-lg:   #{$text-lg};
+  --text-xl:   #{$text-xl};
+  --text-2xl:  #{$text-2xl};
 }

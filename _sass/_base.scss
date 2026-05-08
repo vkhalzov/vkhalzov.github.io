@@ -8,6 +8,7 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: var(--text-base);
 }
 
 body {
@@ -23,35 +24,33 @@ body {
   justify-content: center;
   padding-left: 0;
   border-left: 5px solid var(--red);
-}
 
-body::before {
-  content: '';
-  position: fixed; inset: 0; z-index: 0; pointer-events: none;
-  background:
-    radial-gradient(1px 1px at  8% 12%, rgba(255,255,255,.55) 0, transparent 0),
-    radial-gradient(1px 1px at 23% 44%, rgba(255,255,255,.35) 0, transparent 0),
-    radial-gradient(1px 1px at 57%  8%, rgba(255,255,255,.45) 0, transparent 0),
-    radial-gradient(1px 1px at 74% 58%, rgba(255,255,255,.30) 0, transparent 0),
-    radial-gradient(1px 1px at 91% 27%, rgba(255,255,255,.50) 0, transparent 0),
-    radial-gradient(1px 1px at 43% 73%, rgba(255,255,255,.35) 0, transparent 0),
-    radial-gradient(1px 1px at 13% 82%, rgba(255,255,255,.28) 0, transparent 0),
-    radial-gradient(1px 1px at 84% 88%, rgba(255,255,255,.40) 0, transparent 0),
-    radial-gradient(1.5px 1.5px at 50% 65%, rgba(77,184,232,.4) 0, transparent 0),
-    radial-gradient(1.5px 1.5px at  3% 50%, rgba(77,184,232,.3) 0, transparent 0),
-    radial-gradient(ellipse at 15% 50%, rgba(26,111,168,.07) 0, transparent 55%),
-    radial-gradient(ellipse at 85% 15%, rgba(77,184,232,.04) 0, transparent 45%);
-  background-size: 100% 100%;
-}
-
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background: repeating-linear-gradient(
-    0deg, transparent, transparent 3px,
-    rgba(0,0,0,.025) 3px, rgba(0,0,0,.025) 4px
-  );
+  &::before {
+    content: '';
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background:
+      radial-gradient(1px 1px at  8% 12%, rgba(255,255,255,.55) 0, transparent 0),
+      radial-gradient(1px 1px at 23% 44%, rgba(255,255,255,.35) 0, transparent 0),
+      radial-gradient(1px 1px at 57%  8%, rgba(255,255,255,.45) 0, transparent 0),
+      radial-gradient(1px 1px at 74% 58%, rgba(255,255,255,.30) 0, transparent 0),
+      radial-gradient(1px 1px at 91% 27%, rgba(255,255,255,.50) 0, transparent 0),
+      radial-gradient(1px 1px at 43% 73%, rgba(255,255,255,.35) 0, transparent 0),
+      radial-gradient(1px 1px at 13% 82%, rgba(255,255,255,.28) 0, transparent 0),
+      radial-gradient(1px 1px at 84% 88%, rgba(255,255,255,.40) 0, transparent 0),
+      radial-gradient(1.5px 1.5px at 50% 65%, rgba(77,184,232,.4) 0, transparent 0),
+      radial-gradient(1.5px 1.5px at  3% 50%, rgba(77,184,232,.3) 0, transparent 0),
+      radial-gradient(ellipse at 15% 50%, rgba(26,111,168,.07) 0, transparent 55%),
+      radial-gradient(ellipse at 85% 15%, rgba(77,184,232,.04) 0, transparent 45%);
+    background-size: 100% 100%;
+  }
+  &::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      0deg, transparent, transparent 3px, rgba(0,0,0,.025) 3px, rgba(0,0,0,.025) 4px
+    );
+  }
 }

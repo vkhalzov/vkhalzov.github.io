@@ -40,38 +40,39 @@
   text-decoration: none;
   transition: all .2s;
   position: relative;
-}
-.nav-icon svg {
-  width: 16px;
-  height: 16px;
-  overflow: visible;
-}
-.nav-icon:hover {
-  color: var(--blue);
-  filter: drop-shadow(0 0 5px rgba(77,184,232,.7));
-}
-.nav-icon::after {
-  content: attr(data-tip);
-  position: absolute;
-  left: 42px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(5,14,26,.96);
-  border: 1px solid rgba(77,184,232,.25);
-  color: var(--blue);
-  font-family: 'Share Tech Mono', monospace;
-  font-size: var(--text-xs);
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  padding: 3px 8px;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .15s;
-  z-index: 30;
-}
-.nav-icon:hover::after {
-  opacity: 1;
+
+  svg {
+    width: 16px;
+    height: 16px;
+    overflow: visible;
+  }
+  &:hover {
+    color: var(--blue);
+    filter: drop-shadow(0 0 5px rgba(77,184,232,.7));
+  }
+  &::after {
+    content: attr(data-tip);
+    position: absolute;
+    left: 42px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(5,14,26,.96);
+    border: 1px solid rgba(77,184,232,.25);
+    color: var(--blue);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: var(--text-xs);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .15s;
+    z-index: 30;
+  }
+  &:hover::after {
+    opacity: 1;
+  }
 }
 .sidebar-bottom {
   font-family: 'Share Tech Mono', monospace;
@@ -121,18 +122,19 @@
   transition: all .2s;
   background: rgba(8,22,38,.9);
   color: var(--muted);
+
+  &.active {
+    background: rgba(77,184,232,.12);
+    color: var(--blue);
+    border-color: rgba(77,184,232,.5);
+  }
+  &:not(.active):hover {
+    color: var(--blue);
+    background: rgba(77,184,232,.06);
+  }
 }
 .no-border-r { border-right: none; }
 .no-border-l { border-left: none; }
-.lang-btn.active {
-  background: rgba(77,184,232,.12);
-  color: var(--blue);
-  border-color: rgba(77,184,232,.5);
-}
-.lang-btn:not(.active):hover {
-  color: var(--blue);
-  background: rgba(77,184,232,.06);
-}
 
 /* ── STATUS PILL ── */
 .status-pill {
@@ -192,29 +194,34 @@
   opacity: 0;
   pointer-events: none;
   transition: opacity .3s, border-color .2s, color .2s, box-shadow .2s;
-}
-.scroll-top::after {
-  content: '';
-  position: absolute;
-  inset: -4px;
-  border-radius: 50%;
-  border: 1px solid rgba(77,184,232,.1);
-}
-.scroll-top svg { width: 16px; height: 16px; }
-.scroll-top:hover {
-  border-color: rgba(77,184,232,.7);
-  color: var(--blue);
-  box-shadow: 0 0 10px rgba(77,184,232,.3);
-}
-.scroll-top.is-visible {
-  opacity: 1;
-  pointer-events: auto;
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+  &.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 1px solid rgba(77,184,232,.1);
+  }
+  &:hover {
+    border-color: rgba(77,184,232,.7);
+    color: var(--blue);
+    box-shadow: 0 0 10px rgba(77,184,232,.3);
+  }
 }
 
+/* keyframes */
 @keyframes blink {
   0%,100% { opacity: 1; } 50% { opacity: .25; }
 }
 @keyframes fadeDown {
-  from { opacity:0; transform:translateY(-18px); }
-  to   { opacity:1; transform:translateY(0); }
+  from { opacity: 0; transform: translateY(-18px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
