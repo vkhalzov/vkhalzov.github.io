@@ -42,6 +42,25 @@
   .foot {
     font-size: var(--text-sm);
   }
+
+  // show entry bullets, hide expand toggle on sm+
+  .entry-body ul {
+    display: block;
+  }
+  .expand-wrap {
+    display: none;
+  }
+
+  // make edu and lang to be rows
+  .edu-grid,
+  .lang-grid {
+    flex-direction: row;
+  }
+
+  // restore two-column skill label layout
+  .skill-bar-row {
+    grid-template-columns: 170px 1fr;
+  }
 }
 
 @include up('md') {
@@ -54,18 +73,5 @@
   }
   .page {
     padding: 0 60px 60px 60px;
-  }
-  .edu-grid,
-  .lang-grid {
-    flex-direction: row;
-  }
-  .skill-bar-row {
-    grid-template-columns: 170px 1fr;
-  }
-  .entry-body ul {
-    display: block;
-  }
-  .expand-wrap {
-    display: none;
   }
 }

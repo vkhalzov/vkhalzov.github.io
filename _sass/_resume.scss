@@ -179,6 +179,9 @@
   margin-top: 6px;
   display: none;
 }
+.entry-body.is-expanded ul {
+  display: block;
+}
 .entry-body li {
   padding-left: 14px;
   position: relative;
