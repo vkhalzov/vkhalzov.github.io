@@ -1,0 +1,80 @@
+// _responsive.scss
+
+@media (width < 80rem) {
+  body {
+    /* keep */
+  }
+}
+
+@media (width < 64rem) {
+  body {
+    /* keep */
+  }
+}
+
+@media (width < 48rem) {
+  body {
+    padding-left: 0;
+    border-left: 5px solid var(--red);
+  }
+  .sidebar {
+    display: none;
+  }
+  .page {
+    padding: 0 16px 60px 16px;
+  }
+}
+
+@media (width < 40rem) {
+  .lang-switch {
+    margin-left: auto;
+  }
+  body {
+    line-height: 1.3;
+  }
+  .hero-role {
+    font-size: var(--text-lg);
+    letter-spacing: .1em;
+    margin-bottom: .8rem;
+  }
+  .hero-summary {
+    font-size: var(--text-base);
+  }
+  .sec-num {
+    font-size: var(--text-xs);
+  }
+  .entry {
+    padding: .75rem .875rem;
+  }
+  .sec-title {
+    font-size: var(--text-xl);
+  }
+  .entry-title {
+    font-size: var(--text-lg);
+  }
+  .entry-org {
+    font-size: var(--text-base);
+  }
+  .entry-date,
+  .entry-location {
+    font-size: var(--text-xs);
+  }
+  .entry-body {
+    font-size: var(--text-base);
+  }
+  .tg-label {
+    font-size: var(--text-xs);
+  }
+  .tag {
+    font-size: var(--text-xs);
+  }
+  .foot {
+    font-size: var(--text-xs);
+  }
+  .edu-grid,
+  .lang-grid { flex-direction: column; }
+  .skill-bar-row { grid-template-columns: 1fr; }
+  .entry-body ul { display: none; }
+  .entry-body.is-expanded ul { display: block; }
+  .expand-wrap { display: flex; }
+}

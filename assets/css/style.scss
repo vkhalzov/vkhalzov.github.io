@@ -1,4 +1,9 @@
 ---
+# Sass entry point — compiled by Jekyll into style.css
 ---
 
+@import "variables";
 @import "base";
+@import "layout";
+@import "resume";
+@import "responsive";
