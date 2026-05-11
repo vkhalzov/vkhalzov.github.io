@@ -19,6 +19,10 @@ sass:
 
 # Exclude from processing
 exclude:
+  - .claude/
+  - .idea/
+  - .gitignore
+  - assets/js/main.js
   - node_modules/
   - package.json
   - package-lock.json
@@ -26,9 +30,3 @@ exclude:
   - Gemfile.lock
   - README.md
   - CLAUDE.md
-  - .claude/
-  - .idea/
-  - .gitignore
-  - assets/js/main.js
-  - index-en.html
-  - index-ru.html
