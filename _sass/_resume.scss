@@ -163,26 +163,26 @@
 .entry-body {
   color: var(--muted);
   margin-top: 8px;
-}
-.entry-body ul {
-  list-style: none;
-  margin-top: 6px;
-  display: none;
-}
-.entry-body.is-expanded ul {
-  display: block;
-}
-.entry-body li {
-  padding-left: 14px;
-  position: relative;
-  margin-bottom: 3px;
-}
-.entry-body li::before {
-  content: '›';
-  position: absolute;
-  left: 0;
-  color: var(--blue);
-  line-height: 1.45;
+  &.is-expanded ul {
+    display: block;
+  }
+  ul {
+    list-style: none;
+    margin-top: 6px;
+    display: none;
+  }
+  li {
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 3px;
+    &::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: var(--blue);
+      line-height: 1.45;
+    }
+  }
 }
 
 .entry-stack {
@@ -209,14 +209,20 @@
   padding: 4px 10px;
   cursor: pointer;
   transition: all .18s;
-}
-.expand-btn:hover {
-  background: rgba(77,184,232,.1);
-  border-color: var(--blue);
+  &:hover {
+    background: rgba(77,184,232,.1);
+    border-color: var(--blue);
+  }
 }
 .collapse-lbl { display: none; }
-.is-expanded .expand-lbl { display: none; }
-.is-expanded .collapse-lbl { display: inline; }
+.is-expanded {
+  .expand-lbl {
+    display: none;
+  }
+  .collapse-lbl {
+    display: inline;
+  }
+}
 
 /* ── SKILLS ── */
 .skill-bars {
@@ -253,11 +259,11 @@
   padding: 3px 9px;
   letter-spacing: .04em;
   transition: all .18s;
-}
-.tag:hover {
-  background: rgba(77,184,232,.14);
-  color: var(--blue);
-  border-color: rgba(77,184,232,.45);
+  &:hover {
+    background: rgba(77,184,232,.14);
+    color: var(--blue);
+    border-color: rgba(77,184,232,.45);
+  }
 }
 
 /* ── EDUCATION ── */
