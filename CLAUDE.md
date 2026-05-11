@@ -2,19 +2,19 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Rules
+
+- Always add a trailing newline at the end of files. Never remove existing trailing newlines.
+
 ## What this is
 
-Personal resume/portfolio site for Vladimir Khalzov, hosted at https://vkhalzov.github.io via GitHub Pages. Push to `main` deploys automatically.
-
-Static site with a minimal build step for asset minification (CSS via lightningcss, JS via terser). No framework, no bundler.
+Personal resume/portfolio site for Vladimir Khalzov, hosted at https://vkhalzov.github.io via GitHub Pages. Built with Jekyll. Push to `main` deploys automatically.
 
 ## Previewing locally
 
-Open `index.html` directly in a browser, or run a local server to avoid CORS issues with fonts:
-
 ```bash
-python3 -m http.server 8080
-# then open http://localhost:8080
+bundle exec jekyll serve
+# then open http://localhost:4000
 ```
 
 ## Design theme: Mass Effect / N7
@@ -32,7 +32,30 @@ Preserve this aesthetic for any new elements. New sections, cards, or decorative
 
 ## CSS architecture
 
-All styles live in `assets/css/style.css`. No preprocessor — plain CSS with custom properties.
+Styles live in `_sass/` as Sass partials, compiled by Jekyll's built-in Sass pipeline. Entry point: `assets/css/style.scss`.
+
+### Partials
+
+| File | Contents |
+|------|----------|
+| `_variables.scss` | Sass `$text-*` variables + `:root` CSS custom properties |
+| `_breakpoints.scss` | `$breakpoints` map + `up()` mixin (mobile-first, Tailwind 4 style) |
+| `_base.scss` | Reset, `html`, `body`, star-field and scanline pseudo-elements |
+| `_layout.scss` | Sidebar, page, site header, lang switcher, footer, scroll-to-top |
+| `_resume.scss` | Hero, sections, entry cards, skills, education, languages |
+| `_responsive.scss` | `@include up('sm')` and `@include up('md')` override blocks |
+
+### Mobile-first breakpoints
+
+```scss
+@include up('sm')  // width >= 40rem (640px)  — restore fonts, show bullets
+@include up('md')  // width >= 48rem (768px)  — show sidebar, desktop layout
+@include up('lg')  // width >= 64rem (1024px)
+@include up('xl')  // width >= 80rem (1280px)
+@include up('2xl') // width >= 96rem (1536px)
+```
+
+Base (no mixin) = mobile defaults. Use `up()` to progressively enhance for larger screens.
 
 ### Design tokens (`:root`)
 
@@ -43,8 +66,8 @@ All styles live in `assets/css/style.css`. No preprocessor — plain CSS with cu
 --amber                           secondary labels
 --white / --muted                 text hierarchy
 --border                          rgba(77,184,232,0.2)
---sidebar-w: 48px
---text-xxs … --text-2xl           font size scale
+--sidebar-w: 54px
+--text-xs … --text-2xl            font size scale (also available as $text-* Sass variables)
 ```
 
 ### Font stack
@@ -57,7 +80,7 @@ All styles live in `assets/css/style.css`. No preprocessor — plain CSS with cu
 
 ### Layout
 
-Fixed `48px` sidebar (`.sidebar`) on the left; main content in `<main class="page">` (`margin-left: var(--sidebar-w)`). Sidebar contains the N7 red stripe (`.sidebar-stripe`), clickable nav dots (`.nav-dot`), and a vertical label.
+Fixed `54px` sidebar (`.sidebar`) on the left, hidden on mobile (shown at `md+`). Main content in `<main class="page">`. On mobile, `body` gets a `border-left: 5px solid var(--red)` as the N7 stripe substitute.
 
 ### Section pattern
 
@@ -68,7 +91,7 @@ Every content section follows this structure:
   <div class="sec-head">
     <span class="sec-num">0X /</span>
     <h2 class="sec-title">Title</h2>
-    <div class="sec-rule"></div>   <!-- fading horizontal rule -->
+    <div class="sec-rule"></div>
   </div>
   <!-- content -->
 </section>
@@ -78,7 +101,30 @@ Entry cards (`.entry`) have a left blue border, corner-bracket `::after`, and a 
 
 ### Language segment bars
 
-Languages use `.entry` cards (same as experience/education) with `.lang-segs` inside `.entry-body`. Each segment is a `<span class="ls">` — add `.ls--on` to fill it. 5–6 segments per language; Native = all filled, B2 = 4/6 filled.
+Languages use `.entry` cards with `.lang-segs` inside `.entry-body`. Each segment is a `<span class="ls">` — add `.ls--on` to fill it. 5–6 segments per language; Native = all filled, B2 = 4/6 filled.
+
+## Data structure
+
+Content and UI strings are separated:
+
+```
+_data/
+├── languages.yml          # Shared: [{code, label, url}] for lang switcher
+├── en/
+│   ├── resume.yml         # EN content: meta, profile, experience, skills, education, languages
+│   └── site.yml           # EN UI strings (buttons, labels, section titles)
+└── ru/
+    ├── resume.yml         # RU content (same structure)
+    └── site.yml           # RU UI strings
+```
+
+In templates, locale data is accessed via `site.data[page.lang]`. The `t` variable pattern is used:
+
+```liquid
+{% assign t = site.data[page.lang] %}
+{% assign str = t.site.strings %}
+{% assign resume = t.resume %}
+```
 
 ## Current sections
 
@@ -90,32 +136,32 @@ Languages use `.entry` cards (same as experience/education) with `.lang-segs` in
 | 03 | `#education` | Complete — UlSTU, BS Software Engineering (incomplete), 2013–2018 |
 | 04 | `#languages` | Complete — Russian (Native), English (B2) |
 
-## Navigation
-
-Nav dots in the sidebar are wired to section IDs via `IntersectionObserver` in the inline `<script>` at the bottom of `index.html`. Add a new dot and corresponding section ID to extend navigation.
-
 ## Language variants
 
-Two HTML files — `index.html` (EN) and `index-ru.html` (RU). Both are standalone; there is no build step or shared template. Keep them in sync manually when adding new sections or structural changes.
+Two Jekyll pages — `index.html` (EN, `page.lang: en`) and `ru/index.html` (RU, `page.lang: ru`). Both use `_layouts/default.html` and share all includes. Content is driven by `_data/[lang]/resume.yml` and UI strings by `_data/[lang]/site.yml`.
 
-The language switcher in `.site-header` uses a `<span class="lang-btn active">` for the current language (non-clickable) and an `<a class="lang-btn">` for the other. Utility classes `.no-border-r` / `.no-border-l` collapse the shared border between the two buttons.
+The language switcher loops over `_data/languages.yml` and renders the current language as a `<span>` (non-clickable) and the other as an `<a>`.
+
+## Navigation
+
+Nav icons in the sidebar are wired to section IDs via `IntersectionObserver` in `_layouts/default.html`. Add a new icon and corresponding section ID to extend navigation.
 
 ## Build
 
+Jekyll handles CSS automatically. For JS minification:
+
 ```bash
-npm run build       # minify CSS + JS
-npm run build:css   # lightningcss → assets/css/style.min.css
 npm run build:js    # terser → assets/js/main.min.js
 ```
 
-Edit source files (`style.css`, `main.js`), run the build, then commit both source and minified output. Update the `?v=` timestamp in both HTML `<link>` and `<script>` tags after each build.
+After updating `main.js`, run the build and commit both source and minified output.
 
 ## JavaScript
 
-`assets/js/main.js` — source. Expand/collapse for `.entry` cards and scroll-to-top visibility. Deployed as `main.min.js`.
+`assets/js/main.js` — expand/collapse for `.entry` cards on mobile, scroll-to-top visibility, and a console easter egg (EN/RU). Deployed as `main.min.js`.
 
-`assets/js/metrika.js` — Yandex Metrika tracker (ID `109026309`). Loaded in `<head>` without `defer` on both HTML files for accurate bounce tracking. A `<noscript>` pixel is placed at the end of `<body>`. Not minified — left as-is.
+`assets/js/metrika.js` — Yandex Metrika tracker (ID `109026309`). Loaded in `<head>` without `defer` for accurate bounce tracking. Not minified.
 
 ## Analytics
 
-Yandex Metrika is the analytics provider (webvisor, clickmap, accurate bounce tracking enabled). Both `index.html` and `index-ru.html` include it.
+Yandex Metrika is the analytics provider (webvisor, clickmap, accurate bounce tracking enabled). Both locale pages include it.
