@@ -1,0 +1,77 @@
+// _responsive.scss
+
+@include up('sm') {
+  body {
+    line-height: 1.65;
+  }
+  .lang-switch {
+    margin-left: 0;
+  }
+  .hero-role {
+    letter-spacing: .18em;
+    margin-bottom: 1.375rem;
+  }
+  .hero-summary {
+    font-size: var(--text-lg);
+  }
+  .sec-num {
+    font-size: var(--text-sm);
+  }
+  .sec-title {
+    font-size: var(--text-2xl);
+  }
+  .entry {
+    padding: 1.5rem 1.625rem;
+  }
+  .entry-title {
+    font-size: var(--text-xl);
+  }
+  .entry-org {
+    font-size: var(--text-lg);
+  }
+  .entry-date,
+  .entry-location {
+    font-size: var(--text-sm);
+  }
+  .tg-label {
+    font-size: var(--text-sm);
+  }
+  .tag {
+    font-size: var(--text-sm);
+  }
+  .foot {
+    font-size: var(--text-sm);
+  }
+
+  // show entry bullets, hide expand toggle on sm+
+  .entry-body ul {
+    display: block;
+  }
+  .expand-wrap {
+    display: none;
+  }
+
+  // make edu and lang to be rows
+  .edu-grid,
+  .lang-grid {
+    flex-direction: row;
+  }
+
+  // restore two-column skill label layout
+  .skill-bar-row {
+    grid-template-columns: 170px 1fr;
+  }
+}
+
+@include up('md') {
+  body {
+    padding-left: var(--sidebar-w);
+    border-left: none;
+  }
+  .sidebar {
+    display: flex;
+  }
+  .page {
+    padding: 0 60px 60px 60px;
+  }
+}

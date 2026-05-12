@@ -1,0 +1,13 @@
+{% assign str = t.site.strings %}
+
+<aside class="sidebar">
+  <div class="sidebar-stripe"></div>
+  <nav class="nav-icons">
+    <a href="#profile" class="nav-icon" data-tip="{{ str.professional_summary }}" aria-label="{{ str.professional_summary }}"><svg aria-hidden="true"><use href="/assets/img/icons.svg#icon-profile"/></svg></a>
+    <a href="#experience" class="nav-icon" data-tip="{{ str.experience }}" aria-label="{{ str.experience }}"><svg aria-hidden="true"><use href="/assets/img/icons.svg#icon-experience"/></svg></a>
+    <a href="#skills" class="nav-icon" data-tip="{{ str.technical_skills }}" aria-label="{{ str.technical_skills }}"><svg aria-hidden="true"><use href="/assets/img/icons.svg#icon-skills"/></svg></a>
+    <a href="#education" class="nav-icon" data-tip="{{ str.education }}" aria-label="{{ str.education }}"><svg aria-hidden="true"><use href="/assets/img/icons.svg#icon-education"/></svg></a>
+    <a href="#languages" class="nav-icon" data-tip="{{ str.languages }}" aria-label="{{ str.languages }}"><svg aria-hidden="true"><use href="/assets/img/icons.svg#icon-languages"/></svg></a>
+  </nav>
+  <div class="sidebar-bottom">{{ str.sidebar_text }}</div>
+</aside>

@@ -1,0 +1,29 @@
+{% assign str = t.site.strings %}
+{% assign langs = t.resume.languages %}
+
+<section class="section" id="languages">
+  <div class="sec-head">
+    <span class="sec-num">04 /</span>
+    <h2 class="sec-title">{{ str.languages }}</h2>
+    <div class="sec-rule"></div>
+  </div>
+  <div class="lang-grid">
+    {% for lang in langs %}
+      <div class="entry">
+        <div class="entry-top">
+          <div>
+            <div class="entry-title">{{ lang.name }}</div>
+            <div class="entry-org">{{ lang.level }}</div>
+          </div>
+        </div>
+        <div class="entry-body">
+          <div class="lang-segs">
+            {% for i in (1..lang.segments) %}
+              {% if i <= lang.filled %}<span class="ls ls--on"></span>{% else %}<span class="ls"></span>{% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>

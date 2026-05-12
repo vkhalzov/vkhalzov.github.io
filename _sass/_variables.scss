@@ -1,0 +1,31 @@
+// _variables.scss
+
+/* Font sizes */
+$text-xs:   .75rem;   /* 12px */
+$text-sm:   .875rem;  /* 14px */
+$text-base: 1rem;     /* 16px */
+$text-lg:   1.125rem; /* 18px */
+$text-xl:   1.25rem;  /* 20px */
+$text-2xl:  1.5rem;   /* 24px */
+
+:root {
+  --bg:        #050e1a;
+  --bg-panel:  rgba(8, 22, 38, 0.9);
+  --bg-hover:  rgba(10, 28, 48, 0.97);
+  --blue:      #4db8e8;
+  --blue-dim:  #1a6fa8;
+  --blue-pale: rgba(77,184,232,0.12);
+  --red:       #c41a1a;
+  --amber:     #d4881a;
+  --white:     #ddeeff;
+  --muted:     #8ab8d8;
+  --border:    rgba(77,184,232,0.2);
+  --sidebar-w: 54px;
+  /* Font sizes */
+  --text-xs:   #{$text-xs};
+  --text-sm:   #{$text-sm};
+  --text-base: #{$text-base};
+  --text-lg:   #{$text-lg};
+  --text-xl:   #{$text-xl};
+  --text-2xl:  #{$text-2xl};
+}

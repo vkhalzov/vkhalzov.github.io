@@ -1,0 +1,26 @@
+{% assign str = t.site.strings %}
+{% assign skills = t.resume.skills %}
+
+<section class="section" id="skills">
+  <div class="sec-head">
+    <span class="sec-num">02 /</span>
+    <h2 class="sec-title">{{ str.technical_skills }}</h2>
+    <div class="sec-rule"></div>
+  </div>
+  <div class="entry">
+    <div class="entry-body">
+      <div class="skill-bars">
+        {% for group in skills %}
+          <div class="skill-bar-row">
+            <div class="tg-label">{{ group.label }}</div>
+            <div class="tag-list">
+              {% for tag in group.tags %}
+                <span class="tag">{{ tag }}</span>
+              {% endfor %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
